@@ -1,7 +1,7 @@
 #[cfg(feature = "std")]
 use sha2::Sha256;
 #[cfg(feature = "std")]
-use w3f_bls::{
+use tnt_bls::{
     DoublePublicKey, Keypair, NuggetBLSPoP, NuggetBLSnCPPoP, ProofOfPossessionGenerator,
     SerializableToBytes, TinyBLS381,
 };

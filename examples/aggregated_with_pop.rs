@@ -1,7 +1,7 @@
 #[cfg(feature = "std")]
 use sha2::Sha256;
 #[cfg(feature = "std")]
-use w3f_bls::{
+use tnt_bls::{
     multi_pop_aggregator::MultiMessageSignatureAggregatorAssumingPoP, schnorr_pop::SchnorrPoP,
     Keypair, Message, ProofOfPossession, ProofOfPossessionGenerator, PublicKey, Signed, ZBLS,
 };

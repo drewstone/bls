@@ -1,4 +1,4 @@
-# bls [![Crates.io](https://img.shields.io/crates/v/w3f-bls.svg)](https://crates.io/crates/w3f-bls) #
+# bls [![Crates.io](https://img.shields.io/crates/v/tnt-bls.svg)](https://crates.io/crates/tnt-bls) #
 
 Boneh-Lynn-Shacham (BLS) signatures have slow signing, very slow verification, require slow and much less secure pairing friendly curves, and tend towards dangerous malleability.  Yet, BLS permits a diverse array of signature aggregation options far beyond any other known signature scheme, which makes BLS a preferred scheme for voting in consensus algorithms and for threshold signatures. 
 
@@ -13,7 +13,7 @@ We cannot claim these abstractions provide miss-use resistance, but they at leas
 You first bring the `bls` crate into your project just as you normally would.
 
 ```rust
-use w3f_bls::{Keypair,ZBLS,Message,Signed};
+use tnt_bls::{Keypair,ZBLS,Message,Signed};
 
 let mut keypair = Keypair::<ZBLS>::generate(::rand::thread_rng());
 let message = Message::new(b"Some context",b"Some message");
@@ -29,7 +29,7 @@ As a rule, aggregation that requires distinct messages still requires one miller
 
 ```rust
 #[cfg(feature = "experimental")]
-use w3f_bls::{distinct::DistinctMessages, Keypair, Message, Signed, ZBLS};
+use tnt_bls::{distinct::DistinctMessages, Keypair, Message, Signed, ZBLS};
 
 #[cfg(feature = "experimental")]
 {
@@ -80,7 +80,7 @@ Assuming you already have proofs-of-possession, then you'll want to do aggregati
 The library offers method for generating and verifying proof of positions both based on BLS and [Schnorr Signature](https://en.wikipedia.org/wiki/Schnorr_signature) which is faster to verify than when using BLS signature itself as proof of position. The following example demonstrate how to generate and verify proof of positions and then using `SignatureAggregatorAssumingPoP` to batch and verify multiple BLS signatures.
 
 ```rust
-use w3f_bls::{Keypair,PublicKey,ZBLS,Message,Signed, ProofOfPossessionGenerator, ProofOfPossession, schnorr_pop::{SchnorrPoP}, multi_pop_aggregator::MultiMessageSignatureAggregatorAssumingPoP};
+use tnt_bls::{Keypair,PublicKey,ZBLS,Message,Signed, ProofOfPossessionGenerator, ProofOfPossession, schnorr_pop::{SchnorrPoP}, multi_pop_aggregator::MultiMessageSignatureAggregatorAssumingPoP};
 use sha2::Sha256;
 
 let mut keypairs = [Keypair::<ZBLS>::generate(::rand::thread_rng()), Keypair::<ZBLS>::generate(::rand::thread_rng())];
@@ -111,7 +111,7 @@ use ark_bls12_377::Bls12_377;
 use ark_ff::Zero;
 use rand::thread_rng;
 
-use w3f_bls::{
+use tnt_bls::{
     single_pop_aggregator::SignatureAggregatorAssumingPoP, DoublePublicKeyScheme, EngineBLS, Keypair, Message, PublicKey, PublicKeyInSignatureGroup, Signed, TinyBLS, TinyBLS377,
 };
 

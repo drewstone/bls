@@ -1,5 +1,5 @@
 #[cfg(feature = "std")]
-use w3f_bls::{Keypair, Message, ZBLS};
+use tnt_bls::{Keypair, Message, ZBLS};
 
 /// Run using
 /// ```sh

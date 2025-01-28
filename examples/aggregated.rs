@@ -1,5 +1,5 @@
 #[cfg(feature = "experimental")]
-use w3f_bls::{distinct::DistinctMessages, Keypair, Message, Signed, ZBLS};
+use tnt_bls::{distinct::DistinctMessages, Keypair, Message, Signed, ZBLS};
 
 /// Run using
 /// ```sh
